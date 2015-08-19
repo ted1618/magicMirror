@@ -1,0 +1,8 @@
+{
+	"name": "Full_Orders_and_Customers",
+	"dependencies":{
+	"express": "latest",
+    "mongoose": "latest",
+    "body-parser": "latest"
+	}
+}

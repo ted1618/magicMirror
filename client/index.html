@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Magic Mirror v0.1</title>
+	<!-- Bootstrap -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Angular & Routes (same version!) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js"></script>
+    <!-- My Angular Code: Factories and Controllers -->
+	<script type="text/javascript" src="script.js"></script>
+	<!-- Stylesheets for content -->
+	<link rel="stylesheet" type="text/css" href="css/toggle.css">
+	<link rel="stylesheet" type="text/css" href="css/stars_bg.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/mirror.css">
+</head>
+<body>
+	<div id="myApp" ng-app="myApp">
+
+		<div ng-view>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+#top_features{
+	margin-top: 0px;
+}
+#time,#weather{
+	display: inline-block;
+}
+#time h1{
+	font-size: 80px;
+}
+#weather{
+	margin-left: 400px;
+}
+#bottom_features{
+	margin-top: 1600px;
+}
+#health{
+	margin-left: 0px;
+	width: 400px;
+	display: inline-block;
+}
+#directions{
+	margin-left: 0px;
+	width: 400px;
+	display: inline-block;
+	margin-left: 250px;
+}
