@@ -12,9 +12,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(__dirname+'/client'));
 
 app.use(bodyParser.json());
-//database set-up
-require('./config/mongoose.js');
-require('./config/routes.js')(app);
+
 
 //set app to listen to a port
 app.listen(8000,function(){
