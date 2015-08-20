@@ -417,6 +417,7 @@
 }
 .wi-fahrenheit:before {
   content: "\f045";
+  zoom: 8;
 }
 .wi-degrees:before {
   content: "\f042";

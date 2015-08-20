@@ -23,17 +23,26 @@
 	margin-left: 35px;
 }
 #weather{
-	margin-left: 340px;
+	margin-left: 320px;
 }
 #temp_num{
 	margin-top: 5px;
-	margin-left: -10px;
+	margin-left: 0px;
+}
+#tomorrow{
+	width: 340px;
+	margin-left: 740px;
+}
+#tomorrow i{
+	position: absolute;
+	margin-left: 238px;
+	margin-top: -47px;
 }
 #main_icon{
 	margin-top: 50px;
 }
 #bottom_features{
-	margin-top: 1600px;
+	margin-top: 1300px;
 }
 #health{
 	margin-left: 0px;

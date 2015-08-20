@@ -18,6 +18,10 @@
 			<i class="wi wi-thermometer"></i>
 			<h1 id="temp_num" ng-bind="weather.current.feelslike_f"></h1>
 		</div>
+		<div id="tomorrow">
+			<h2>Tomorrow will be <span ng-bind="weather.forecast.forecastday[1].day.condition.text"></span>. Expect around <span ng-bind="weather.forecast.forecastday[1].day.avgtemp_f"></span></h2>
+			<i class="wi wi-fahrenheit"></i>
+		</div>
 	</div>
 	<div id="bottom_features">
 		<div id="health">
