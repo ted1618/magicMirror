@@ -19,16 +19,13 @@
 			<h1 id="temp_num" ng-bind="weather.current.feelslike_f"></h1>
 		</div>
 		<div id="tomorrow">
-			<h2>Tomorrow will be <span ng-bind="weather.forecast.forecastday[1].day.condition.text"></span>. Expect around <span ng-bind="weather.forecast.forecastday[1].day.avgtemp_f"></span></h2>
+			<h2>Tomorrow will be <span ng-bind="weather.forecast.forecastday[1].day.condition.text"></span>. Expect around <span ng-bind="tomorrow_temp_f"></span></h2>
 			<i class="wi wi-fahrenheit"></i>
+			<div id="sun_alert_div">
+				
+			</div>
 		</div>
 	</div>
-	<div id="bottom_features">
-		<div id="health">
-			<h1>You got 8 hours of sleep. All metrics are good. You are awesome.</h1>
-		</div>
-		<div id="directions">
-			<h1>Time to work is 12 minutes. Looks a bit busy.</h1>
-		</div>
+	<div id="bottom" ng-bind="ai">
 	</div>
 </div 

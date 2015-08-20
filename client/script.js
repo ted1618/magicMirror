@@ -149,11 +149,11 @@ myApp.controller('mirrorController',function($scope,mirrorFactory,$interval){
 		{
 			$scope.icon_name = "wi wi-night-clear"
 		}
-		else if((code.code == 1003 || code.code == 1006) && timeOfDay == "day")
+		else if((code.code == 1003 || code.code == 1006 || code.code == 1009) && timeOfDay == "day")
 		{
 			$scope.icon_name = "wi wi-day-cloudy"
 		}
-		else if((code.code == 1003 || code.code == 1006) && timeOfDay == "night")
+		else if((code.code == 1003 || code.code == 1006 || code.code == 1009) && timeOfDay == "night")
 		{
 			$scope.icon_name = "wi wi-night-alt-cloudy"
 		}
@@ -161,10 +161,74 @@ myApp.controller('mirrorController',function($scope,mirrorFactory,$interval){
 		{
 			$scope.icon_name = "wi wi-hail"
 		}
+		//********************** Round down temperature for proper render **************
+		$scope.tomorrow_temp_f=Math.floor($scope.weather.forecast.forecastday[1].day.avgtemp_f)
+		//*********************** Set Up Sun Alert SUNSCREEN **************************
+		if($scope.weather.current.feelslike_f >= 92)
+		{
+			var div = document.getElementById("sun_alert_div");
+			div.innerHTML = "<img src='img/sun_alert.png' id='sun_alert' alt='sun_alert'><h2>Chief, wear sunscreen.</h2>"
+		}
+		else if($scope.weather.current.feelslike_f < 92)
+		{
+			var div = document.getElementById("sun_alert_div");
+			div.innerHTML = ""
+		}
+		
 		});	
 	}
 	updateWeather();
 	$interval(updateWeather,1200000);
+	var mirrorBrain = function()
+	{
+		//************************************************** THE BRAIN ***************************************
+		// This is the "brain" of the magic mirror. It shows content based on a number of external variables
+		// such as the time of day, temperature. It renders all sort of content from motivational speeches to 
+		// algorithm problems. 
+		//****************************************************************************************************
+	//Time tracking Variables
+		var d = new Date();
+		var timeCheck = d.getHours();
+	// Declare storing variables
+	var greetings=[["Good morning, ninja!","You are awesome. That's all I have to say.","The Dojo welcomes you","Hey handsome, have a good day.","Time to shine, let's get that code going.","Let's work, chief.","Dojo Life Initiatied"],
+				  ["Most of the coding is done around now.","Time for Ping Pong!","What's your next big project?","Oh hey there :)","Code like there's no tomorrow."],
+				  ["ERR 404: code x3127a; JK. I'm fine.","Give me a smile :)","I've been expecting you.","I dare you to take a selfie.","Did you know I programmed myself in binary?","I was a crazy idea in a student's brain. And now I'm here.","I wish I was a smartwatch."]];
+	var algorithms=[];
+	var jokes = ["There are only 10 kinds of people in this world: those who know binary and those who don’t.",
+					"99 little bugs in the code. 99 bugs in the code. patch one down, compile it around. 117 bugs in the code",
+					"A programmer puts two glasses on his bedside table before going to sleep. A full one, in case he gets thirsty, and an empty one, in case he doesn’t.",
+					"A programmer is heading out to the grocery store, so his wife tells him 'get a gallon of milk, and if they have eggs, get a dozen.' He returns with 13 gallons of milk.",
+					"In order to understand recursion you must first understand recursion.",
+					"Coding Dojo'); DROP TABLE Students; --",
+					"An SEO expert walks into a bar, pub, liquor store, brewery, alcohol, beer, whiskey, vodka",
+					"How do you generate a random string? Put a first year CS student in front of VIM and tell him to save and exit.",
+					"JavaScript is to Java like car is to carpet",
+					"A testing engineer walks into a bar. Runs into a bar. Crawls into a bar. Dances into a bar. Tiptoes into a bar. Rams into a bar.",
+					"There’s no place like 127.0.0.1.",
+					".titanic { float : none; }",
+					"Should array indices start at 0 or 1? My compromise of 0.5 was rejected without, I thought, proper consideration."]; 
+	var quotes =["If Internet Explorer is brave enough to ask to be your default browser, you’re brave enough to ask that girl out.",
+				 "It's not at all important to get it right the first time. It's vitally important to get it right the last time.",
+				 "First, solve the problem. Then, write the code.",
+				 "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
+				 "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.",
+				 "I don't care if it works on your machine! We are not shipping your machine!",
+				 "To iterate is human, to recurse divine.",
+				 "Perfection [in design] is achieved, not when there is nothing more to add, but when there is nothing left to take away.",
+				 "Talk is cheap. Show me the code.",
+				 "Python's a drop-in replacement for BASIC in the sense that Optimus Prime is a drop-in replacement for a truck.",
+				 "If you want to set off and go develop some grand new thing, you don't need millions of dollars of capitalization. You need enough pizza and Diet Coke to stick in your refrigerator, a cheap PC to work on and the dedication to go through with it.",
+				 "Linux is only free if your time has no value."
+				 ];
+	//Master Object aka the Memory
+	var memory = {
+		greeting: greetings,
+		algorithm: algorithms,
+		joke: jokes,
+		quote: quotes
+	}	
+	}
+	mirrorBrain();
 	})
 // ************************Login Controller ********************************
 myApp.controller('loginController',function($scope,mirrorFactory){

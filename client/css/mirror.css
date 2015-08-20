@@ -20,7 +20,7 @@
 	font-size: 100px;
 }
 #date{
-	margin-left: 35px;
+	margin-left: 79px;
 }
 #weather{
 	margin-left: 320px;
@@ -35,8 +35,11 @@
 }
 #tomorrow i{
 	position: absolute;
-	margin-left: 238px;
+	margin-left: 245px;
 	margin-top: -47px;
+}
+#sun_alert{
+	padding-left: 72px;
 }
 #main_icon{
 	margin-top: 50px;
@@ -54,4 +57,16 @@
 	width: 400px;
 	display: inline-block;
 	margin-left: 250px;
+}
+#bottom{
+	margin-top: 700px;
+}
+#bottom h1{
+	font-size: 80px;
+}
+#bottom h2{
+	font-size: 60px;
+}
+#bottom h3{
+	font-size: 40px;
 }
