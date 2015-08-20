@@ -1,14 +1,36 @@
 #top_features{
 	margin-top: 0px;
 }
-#time,#weather{
+#top_features img{
+	vertical-align: top;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 20px;
+}
+#time,#weather,#temp{
 	display: inline-block;
 }
+#left_corner{
+	display: inline-block;
+}
+#time{
+	margin-top: 20px;
+}
 #time h1{
-	font-size: 80px;
+	font-size: 100px;
+}
+#date{
+	margin-left: 35px;
 }
 #weather{
-	margin-left: 400px;
+	margin-left: 340px;
+}
+#temp_num{
+	margin-top: 5px;
+	margin-left: -10px;
+}
+#main_icon{
+	margin-top: 50px;
 }
 #bottom_features{
 	margin-top: 1600px;
