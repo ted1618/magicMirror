@@ -221,14 +221,56 @@ myApp.controller('mirrorController',function($scope,mirrorFactory,$interval){
 				 "Linux is only free if your time has no value."
 				 ];
 	//Master Object aka the Memory
-	var memory = {
+	var memory = 
+	{
 		greeting: greetings,
 		algorithm: algorithms,
 		joke: jokes,
 		quote: quotes
-	}	
+	}
+	var randElem = function(arr)
+	{
+		var elem = arr[Math.floor(Math.random()*(arr.length))];
+		return elem
+	}
+	//**************************************************** Setting Info to Display Based on Time ************************************************************
+		console.log('the hour we have is',timeCheck);
+		if(timeCheck < 10)
+		{
+			$scope.ai=randElem(memory.greeting[0]);
+		}
+		else if(timeCheck >= 18 && timeCheck <=5)
+		{
+			$scope.ai = randElem(memory.greeting[1]);
+		}
+		else if(timeCheck >= 10 && timeCheck <13)
+		{
+			$scope.ai = randElem(memory.quote);
+		}
+		else if(timeCheck == 13 || timeCheck == 16)
+		{
+			$scope.ai = randElem(memory.joke);
+		}
+		else{
+			$scope.ai = randElem(memory.greeting[2]);
+		}
+	//************************** Apply proper sizing based on length of $scope.ai *******************
+	var div_bottom = document.getElementById("bottom");
+	if($scope.ai.length<=30)
+	{
+		div_bottom.innerHTML="<h1>"+$scope.ai+"</h1>";
+	}
+	else if($scope.ai.length<60)
+	{
+		div_bottom.innerHTML="<h2>"+$scope.ai+"</h2>";
+	}
+	else{
+		div_bottom.innerHTML="<h3>"+$scope.ai+"</h3>";
+	}
 	}
 	mirrorBrain();
+	$interval(mirrorBrain(),1800000);
+
 	})
 // ************************Login Controller ********************************
 myApp.controller('loginController',function($scope,mirrorFactory){
