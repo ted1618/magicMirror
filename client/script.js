@@ -269,7 +269,7 @@ myApp.controller('mirrorController',function($scope,mirrorFactory,$interval){
 	}
 	}
 	mirrorBrain();
-	$interval(mirrorBrain(),1800000);
+	$interval(mirrorBrain,120000);
 
 	})
 // ************************Login Controller ********************************
